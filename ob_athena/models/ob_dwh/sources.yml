@@ -13,3 +13,12 @@ sources:
       - name: b2b_product_sku_price_range
       - name: b2b_brand_profile
       - name: loyalty_brand
+      - name: b2b_public_rfq
+      - name: b2b_public_rfq_category
+      - name: b2b_direct_rfq
+      - name: b2b_direct_rfq_detail
+      - name: b2b_direct_quote
+      - name: b2b_direct_quote_detail
+      - name: b2b_quote_to_public_rfq
+      - name: b2b_order
+      - name: b2b_order_detail

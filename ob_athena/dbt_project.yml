@@ -36,5 +36,4 @@ models:
       +materialized: view
     ob_dwh: 
       +materialized: table
-      +schema: ob_dwh
       +file_format: parquet
