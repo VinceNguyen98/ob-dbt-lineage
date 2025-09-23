@@ -1,0 +1,19 @@
+ob_athena:
+  outputs:
+    dev:
+      database: awsdatacatalog
+      region_name: ap-southeast-1
+      s3_data_dir: s3://obranding-datalake-bronze-zone-dev/db/open_live_market/
+      s3_staging_dir: s3://obranding-datalake-temp-dev/athena-results/etl-group/
+      schema: open_live_market
+      threads: 1
+      type: athena
+    dwh:
+      database: awsdatacatalog
+      region_name: ap-southeast-1
+      s3_data_dir: s3://obranding-datalake-silver-zone-dev/db/
+      s3_staging_dir: s3://obranding-datalake-temp-dev/athena-results/etl-group/
+      schema: ob_dwh
+      threads: 1
+      type: athena
+  target: dwh

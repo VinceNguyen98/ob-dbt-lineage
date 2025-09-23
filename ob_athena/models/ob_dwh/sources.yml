@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: open_live_market
+    database: awsdatacatalog
+    schema: open_live_market
+    tables:
+      - name: b2b_product
+      - name: b2b_product_cert
+      - name: b2b_certificate
+      - name: b2b_category
+      - name: b2b_product_sku
+      - name: b2b_product_sku_price_range
+      - name: b2b_brand_profile
+      - name: loyalty_brand
