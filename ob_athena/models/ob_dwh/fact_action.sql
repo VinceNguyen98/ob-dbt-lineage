@@ -17,7 +17,7 @@ select
 	, b.id b2b_product_id
 	, b.category_id b2b_category_id 
 	, a.id b2b_product_sku_id
-	, a.created_at created_at 
+	,cast(a.created_at.member0 as timestamp) as created_at 
 	, NULL rfq_code -- join code vào bảng b2b_direct_rfq để lấy thông tin  
 	, NULL rfq_item_count 
 	, NULL rfq_amount   
@@ -39,7 +39,7 @@ select
 	, a.b2b_product_id b2b_product_id
 	, b.category_id b2b_category_id
 	, c.b2b_product_sku_id b2b_product_sku_id
-	, a.created_at created_at
+	,cast(a.created_at.member0 as timestamp) as created_at
 	, a.code rfq_code
 	, c.item_count rfq_item_count   
 	, c.amount rfq_amount
@@ -62,7 +62,7 @@ select
 	, b.b2b_product_id 
 	, c.category_id  b2b_category_id
 	, d.b2b_product_sku_id b2b_product_sku_id 
-	, a.created_at created_at
+	,cast(a.created_at.member0 as timestamp) as created_at
 	, b.code rfq_code 
 	, d.item_count rfq_item_count   
 	, d.amount rfq_amount
@@ -87,7 +87,7 @@ select
 	, NULL b2b_product_id 
 	, b.b2b_category_id b2b_category_id 
 	, NULL b2b_product_sku_id 
-	, a.created_at created_at
+	,cast(a.created_at.member0 as timestamp) as created_at
 	, a.code rfq_code  
 	, a.request_item_count rfq_item_count   
 	, a.request_budget rfq_amount
@@ -109,7 +109,7 @@ select
 	, c.b2b_product_id 
 	, b1.b2b_category_id b2b_category_id
 	, c.id b2b_product_sku_id 
-	, a.created_at created_at
+	,cast(a.created_at.member0 as timestamp) as created_at
 	, b.code rfq_code   
 	, b.request_item_count rfq_item_count   
 	, b.request_budget rfq_amount
@@ -133,7 +133,7 @@ select
 	, b3.id b2b_product_id
 	, b3.category_id b2b_category_id 
 	, b2.id b2b_product_sku_id
-	, a.created_at created_at 
+	,cast(a.created_at.member0 as timestamp) as created_at
 	, NULL rfq_code   
 	, NULL rfq_item_count   
 	, NULL rfq_amount
@@ -176,7 +176,7 @@ left join {{ source('open_live_market', 'b2b_certificate') }} c on b.b2b_certifi
 left join {{ source('open_live_market', 'b2b_product_sku_price_range') }} d on a.b2b_product_sku_id = d.b2b_product_sku_id 
 left join {{ source('open_live_market', 'b2b_brand_profile') }} e on e.brand_id = a.seller_brand_id
 )
-select * from full_summary
+select count (1) from full_summary --3788
 
 
 

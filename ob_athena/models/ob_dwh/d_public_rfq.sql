@@ -6,12 +6,12 @@
 
 select 
 	a.id public_rfq_id
-	, a.created_at
+	,cast(a.created_at.member0 as timestamp) as created_at
 	, a.creator_id
 	, a.from_brand_id from_brand_id
 	, a.name
 	, a.description
-	, a.expired_date
+	,cast(a.expired_date.member0 as timestamp) as expired_date
 	, a.status
 	, a.approval_status 
 	, a.approval_note 

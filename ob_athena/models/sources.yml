@@ -22,3 +22,11 @@ sources:
       - name: b2b_quote_to_public_rfq
       - name: b2b_order
       - name: b2b_order_detail
+      - name: vinh_test_dbt_cdc
+  - name: ob_dwh
+    database: awsdatacatalog
+    schema: ob_dwh
+    tables:
+      - name: d_product
+      - name: d_b2b_supplier
+      - name: fact_action

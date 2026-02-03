@@ -6,10 +6,10 @@
 
 select 
 	a.brand_id supplier_id 
-	, b.created_at supplier_created_at 
+	,cast(b.created_at.member0 as timestamp) as supplier_created_at
 	, b.creator_id supplier_creator_id
-	, a.id supplier_profile_id 
-	, a.created_at supplier_profile_created_at
+	, a.id supplier_profile_id
+	,cast(a.created_at.member0 as timestamp) as supplier_profile_created_at
 	, a.creator_id supplier_profile_creator_id
 	, a.b2b_profile
 	, a.is_verified 
